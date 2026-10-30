@@ -1,0 +1,14 @@
+title: 올댓폰 휴대폰 정보 블로그
+description: 지역별 휴대폰 성지, 공동구매, 개통 정보를 정리하는 올댓폰 공식 정보 블로그
+url: "https://htglove.github.io"
+baseurl: "/Allthat"
+lang: ko
+timezone: Asia/Seoul
+permalink: /:year/:month/:title/
+cafe_url: "https://cafe.naver.com/cutebell"
+author:
+  name: 올댓폰
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed

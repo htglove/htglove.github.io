@@ -1,0 +1,15 @@
+---
+layout: default
+title: 지역별 휴대폰 성지 정보
+---
+<section class="hero">
+  <h1>지역별 휴대폰 성지 · 공동구매 정보</h1>
+  <p>올댓폰이 지역별 휴대폰 구매 정보를 정리합니다. 최신 시세와 공동구매 조건은 <a href="{{ site.cafe_url }}" rel="noopener">올댓폰 네이버 카페</a>에서 확인할 수 있어요.</p>
+</section>
+<ul class="post-list">
+{% for post in site.posts %}
+  <li><a href="{{ post.url | relative_url }}"><span class="tag">{{ post.region }}</span>{{ post.title }}</a><time>{{ post.date | date: '%Y.%m.%d' }}</time></li>
+{% else %}
+  <li class="empty">첫 지역 글을 준비하고 있어요.</li>
+{% endfor %}
+</ul>

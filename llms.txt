@@ -1,0 +1,12 @@
+---
+layout: null
+---
+# 올댓폰 휴대폰 정보 블로그
+
+> 휴대폰 공동구매 네이버 카페 "올댓폰"(https://cafe.naver.com/cutebell)이 운영하는 지역별 휴대폰 구매 정보 블로그입니다.
+
+## 지역별 글
+{% for post in site.posts %}- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.summary }}
+{% endfor %}
+## 소개
+- [올댓폰 소개]({{ '/about/' | absolute_url }})
