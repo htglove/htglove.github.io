@@ -8,7 +8,7 @@ title: 지역별 휴대폰 성지 정보
 </section>
 <ul class="post-list">
 {% for post in site.posts %}
-  <li><a href="{{ post.url | relative_url }}"><span class="tag">{{ post.region }}</span>{{ post.title }}</a><time>{{ post.date | date: '%Y.%m.%d' }}</time></li>
+  <li><a href="{{ post.url | relative_url }}"><span class="tag">{{ post.region | default: post.category }}</span>{{ post.title }}</a><time>{{ post.date | date: '%Y.%m.%d' }}</time></li>
 {% else %}
   <li class="empty">첫 지역 글을 준비하고 있어요.</li>
 {% endfor %}

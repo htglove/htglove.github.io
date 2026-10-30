@@ -16,5 +16,7 @@ exclude:
   - GEO_GUIDE.md
   - regions.md
   - README.md
+  - topics.md
+  - data
 naver_verification: "d8eee379bc4dd5ae439e266621211a1191e80227"
 google_verification: "zxjV2j4am7ksb_1cdVEF1qruBoWxy3BSXMIG19w2RcI"

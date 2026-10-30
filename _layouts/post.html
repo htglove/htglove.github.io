@@ -2,12 +2,12 @@
 layout: default
 ---
 <article class="post">
-  <p class="meta">{{ page.region }} · {{ page.date | date: '%Y.%m.%d' }}{% if page.last_modified_at %} · 업데이트 {{ page.last_modified_at | date: '%Y.%m.%d' }}{% endif %}</p>
+  <p class="meta">{{ page.region | default: page.category }} · {{ page.date | date: '%Y.%m.%d' }}{% if page.last_modified_at %} · 업데이트 {{ page.last_modified_at | date: '%Y.%m.%d' }}{% endif %}</p>
   <h1>{{ page.title }}</h1>
   {% if page.summary %}<p class="summary"><strong>요약:</strong> {{ page.summary }}</p>{% endif %}
   {{ content }}
   <aside class="cta">
-    <p><strong>{{ page.region }} 휴대폰 시세가 궁금하다면</strong><br>올댓폰 네이버 카페에서 이번 달 공동구매 조건을 확인해 보세요.</p>
+    <p><strong>{% if page.region %}{{ page.region }} {% endif %}휴대폰 시세가 궁금하다면</strong><br>올댓폰 네이버 카페에서 이번 달 공동구매 조건을 확인해 보세요.</p>
     <a class="btn" href="{{ site.cafe_url }}" rel="noopener">올댓폰 카페에서 시세 확인하기</a>
   </aside>
 </article>
