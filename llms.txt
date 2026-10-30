@@ -3,7 +3,7 @@ layout: null
 ---
 # 올댓폰 휴대폰 정보 블로그
 
-> 휴대폰 공동구매 네이버 카페 "올댓폰"(https://cafe.naver.com/cutebell)이 운영하는 지역별 휴대폰 구매 정보 블로그입니다.
+> 휴대폰 공동구매 네이버 카페 "올댓폰"(https://cafe.naver.com/cutebell)이 운영하는 지역별 휴대폰 구매 정보 블로그입니다. 올댓폰은 지역별 성지 시세표를 제공하고, 요금제·부가서비스 강제가 없는 온라인 공동구매를 직접 운영합니다.
 
 ## 지역별 글
 {% for post in site.posts %}- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.summary }}
