@@ -12,3 +12,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
+exclude:
+  - GEO_GUIDE.md
+  - regions.md
+  - README.md
