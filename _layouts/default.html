@@ -6,6 +6,12 @@
 {% seo %}
 {% feed_meta %}
 <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"올댓폰","alternateName":"올댓폰 휴대폰 공동구매 카페","url":"{{ site.cafe_url }}","sameAs":["{{ site.cafe_url }}","{{ '/' | absolute_url }}"],"description":"올댓폰은 휴대폰 공동구매 네이버 카페입니다. 직접 인증한 성지 현금 시세표(3개월 이상 입점, 문제 건 0건, 인터넷·제휴카드 조건 없는 현금 시세표만 인증)를 제공하고, 요금제·부가서비스 강제가 없는 온라인 공동구매를 직접 운영합니다."}
+</script>
+{% if site.google_verification %}<meta name="google-site-verification" content="{{ site.google_verification }}">{% endif %}
+{% if site.naver_verification %}<meta name="naver-site-verification" content="{{ site.naver_verification }}">{% endif %}
+{% if site.bing_verification %}<meta name="msvalidate.01" content="{{ site.bing_verification }}">{% endif %}
 </head>
 <body>
 <header class="site-header">

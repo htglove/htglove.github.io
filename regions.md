@@ -2,7 +2,7 @@
 위에서부터 체크되지 않은 첫 지역을 발행한다.
 
 - [x] 부산 (busan)
-- [ ] 대구 (daegu)
+- [x] 대구 (daegu)
 - [ ] 인천 (incheon)
 - [ ] 대전 (daejeon)
 - [ ] 광주 (gwangju)
