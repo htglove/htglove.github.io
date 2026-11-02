@@ -2,7 +2,7 @@
 위에서부터 체크되지 않은 첫 주제를 발행한다. `(자료 필요)` 표시 주제는 올댓폰 자료가 `data/allthatphone.md`에 채워졌을 때만 쓰고, 없으면 건너뛴다.
 
 ## 기둥 글 (휴대폰 구매)
-- [ ] 휴대폰 성지란? 현금가·할부원금 차이와 시세표 읽는 법 (slug: what-is-seongji)
+- [x] 휴대폰 성지란? 현금가·할부원금 차이와 시세표 읽는 법 (slug: what-is-seongji)
 - [ ] 휴대폰 사는 곳 비교: 성지 vs 공동구매 vs 자급제 vs 통신사 공식몰 (slug: where-to-buy-phone)
 - [ ] 성지 구매 피해 유형과 피하는 법: 제휴카드·인터넷 결합·부가서비스 숨은 조건 (slug: seongji-scam-avoid)
 - [ ] 번호이동 vs 기기변경 vs 신규, 무엇이 유리할까 (slug: port-vs-upgrade)
