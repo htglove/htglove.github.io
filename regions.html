@@ -1,0 +1,17 @@
+---
+layout: default
+title: 지역별 휴대폰 성지 정보
+description: "부산, 대구 등 지역별 휴대폰 성지 찾는 법과 올댓폰 인증 현금 시세표, 매장 방문 구매와 강제 조건 없는 공동구매 방법을 지역별로 정리했습니다."
+permalink: /regions/
+---
+<nav class="crumbs" aria-label="현재 위치"><a href="{{ '/' | relative_url }}">홈</a> › <span>지역별 성지</span></nav>
+<section class="hero">
+  <h1>지역별 휴대폰 성지 정보</h1>
+  <p>지역마다 성지 시세표를 보는 법과 구매 방법을 정리합니다. 가까운 매장이 없거나 방문이 번거롭다면 올댓폰 온라인 공동구매로 휴대폰을 택배로 받아 개통할 수 있습니다.</p>
+</section>
+<ul class="post-list">
+{% for post in site.posts %}{% if post.region %}
+  <li><a href="{{ post.url | relative_url }}"><span class="tag">{{ post.region }}</span>{{ post.title }}</a><time>{{ post.date | date: '%Y.%m.%d' }}</time></li>
+{% endif %}{% endfor %}
+</ul>
+<p>시세표 용어가 낯설다면 <a href="{{ '/guide/' | relative_url }}">휴대폰 구매 가이드</a>를 먼저 읽어 보세요.</p>

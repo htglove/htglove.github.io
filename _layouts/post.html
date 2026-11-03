@@ -1,16 +1,35 @@
 ---
 layout: default
 ---
+<nav class="crumbs" aria-label="현재 위치"><a href="{{ '/' | relative_url }}">홈</a> › {% if page.region %}<a href="{{ '/regions/' | relative_url }}">지역별 성지</a>{% else %}<a href="{{ '/guide/' | relative_url }}">구매 가이드</a>{% endif %} › <span>{{ page.region | default: page.category }}</span></nav>
 <article class="post">
   <p class="meta">{{ page.region | default: page.category }} · {{ page.date | date: '%Y.%m.%d' }}{% if page.last_modified_at %} · 업데이트 {{ page.last_modified_at | date: '%Y.%m.%d' }}{% endif %}</p>
   <h1>{{ page.title }}</h1>
   {% if page.summary %}<p class="summary"><strong>요약:</strong> {{ page.summary }}</p>{% endif %}
   {{ content }}
+  <section class="related">
+    <h2>함께 읽으면 좋은 글</h2>
+    <ul>
+    {% assign shown = 0 %}
+    {% for p in site.posts %}{% if shown < 3 and p.url != page.url %}{% unless p.region %}{% if p.category == page.category %}<li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>{% assign shown = shown | plus: 1 %}{% endif %}{% endunless %}{% endif %}{% endfor %}
+    {% for p in site.posts %}{% if shown < 3 and p.url != page.url %}{% unless p.region %}{% if p.category != page.category %}<li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>{% assign shown = shown | plus: 1 %}{% endif %}{% endunless %}{% endif %}{% endfor %}
+    </ul>
+    {% capture chips %}{% for p in site.posts %}{% if p.region and p.url != page.url %}<a href="{{ p.url | relative_url }}">{{ p.region }} 휴대폰 성지</a>{% endif %}{% endfor %}{% endcapture %}
+    {% assign chips = chips | strip %}
+    {% if chips != "" %}
+    <h3>지역별 휴대폰 성지 정보</h3>
+    <p class="chips">{{ chips }}</p>
+    {% endif %}
+  </section>
+  <p class="notice">시세와 조건은 매장과 시점에 따라 달라질 수 있습니다. 최신 시세는 <a href="{{ site.cafe_url }}" rel="noopener">올댓폰 카페</a>에서 확인하세요.</p>
   <aside class="cta">
     <p><strong>{% if page.region %}{{ page.region }} {% endif %}휴대폰 시세가 궁금하다면</strong><br>올댓폰 네이버 카페에서 이번 달 공동구매 조건을 확인해 보세요.</p>
     <a class="btn" href="{{ site.cafe_url }}" rel="noopener">올댓폰 카페에서 시세 확인하기</a>
   </aside>
 </article>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":{{ '/' | absolute_url | jsonify }}},{% if page.region %}{"@type":"ListItem","position":2,"name":"지역별 성지","item":{{ '/regions/' | absolute_url | jsonify }}}{% else %}{"@type":"ListItem","position":2,"name":"구매 가이드","item":{{ '/guide/' | absolute_url | jsonify }}}{% endif %},{"@type":"ListItem","position":3,"name":{{ page.title | jsonify }},"item":{{ page.url | absolute_url | jsonify }}}]}
+</script>
 {% if page.faq %}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for q in page.faq %}{"@type":"Question","name":{{ q.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ q.a | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
