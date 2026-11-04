@@ -15,7 +15,7 @@ description: "올댓폰이 직접 인증한 휴대폰 성지 현금 시세표 �
 </ul>
 <h2 class="section-title">지역별 휴대폰 성지 <a href="{{ '/regions/' | relative_url }}">전체 보기</a></h2>
 <ul class="post-list">
-{% for post in site.posts %}{% if post.region %}
+{% for post in site.posts %}{% if post.region and post.region != '수원' %}
   <li><a href="{{ post.url | relative_url }}"><span class="tag">{{ post.region }}</span>{{ post.title }}</a><time>{{ post.date | date: '%Y.%m.%d' }}</time></li>
 {% endif %}{% endfor %}
 </ul>
