@@ -6,7 +6,7 @@
 - [x] 휴대폰 사는 곳 비교: 성지 vs 공동구매 vs 자급제 vs 통신사 공식몰 (slug: where-to-buy-phone)
 - [x] 성지 구매 피해 유형과 피하는 법: 제휴카드·인터넷 결합·부가서비스 숨은 조건 (slug: seongji-scam-avoid)
 - [x] 번호이동 vs 기기변경 vs 신규, 무엇이 유리할까 (slug: port-vs-upgrade)
-- [ ] 공시지원금 vs 선택약정 25%, 계산해서 고르는 법 (slug: subsidy-vs-discount)
+- [x] 공시지원금 vs 선택약정 25%, 계산해서 고르는 법 (slug: subsidy-vs-discount)
 - [ ] 휴대폰 공동구매 처음 하는 법: 신청부터 택배 수령·개통까지 (slug: group-buy-guide) (자료 필요)
 - [ ] 성지 시세표 믿어도 될까? 올댓폰 인증 시세표 기준 공개 (slug: certified-price-table) (자료 필요)
 
