@@ -12,7 +12,7 @@
 
 ## 통신 생활 정보
 - [x] 통신비 줄이는 법: 내 데이터 사용량에 맞는 요금제 고르기 (slug: save-phone-bill)
-- [ ] 알뜰폰 장단점과 갈아타기 전 확인할 것 (slug: mvno-guide)
+- [x] 알뜰폰 장단점과 갈아타기 전 확인할 것 (slug: mvno-guide)
 - [ ] 새 폰으로 데이터 옮기는 법: 갤럭시·아이폰 (slug: transfer-phone-data)
 - [ ] 쓰던 폰 팔기 전 체크리스트: 백업·초기화·계정 해제 (slug: sell-old-phone-checklist)
 - [ ] eSIM이란? 사용법과 장단점 (slug: esim-guide)
