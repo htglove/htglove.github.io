@@ -6,6 +6,8 @@ lang: ko
 timezone: Asia/Seoul
 permalink: /:year/:month/:title/
 cafe_url: "https://cafe.naver.com/cutebell"
+pricenote_url: "https://allthatphone.github.io/"
+pricenote_about_url: "https://allthatphone.github.io/about/"
 author:
   name: 올댓폰
 plugins:
