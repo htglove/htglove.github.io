@@ -14,7 +14,7 @@
 - [x] 통신비 줄이는 법: 내 데이터 사용량에 맞는 요금제 고르기 (slug: save-phone-bill)
 - [x] 알뜰폰 장단점과 갈아타기 전 확인할 것 (slug: mvno-guide)
 - [x] 새 폰으로 데이터 옮기는 법: 갤럭시·아이폰 (slug: transfer-phone-data)
-- [ ] 쓰던 폰 팔기 전 체크리스트: 백업·초기화·계정 해제 (slug: sell-old-phone-checklist)
+- [x] 쓰던 폰 팔기 전 체크리스트: 백업·초기화·계정 해제 (slug: sell-old-phone-checklist)
 - [ ] eSIM이란? 사용법과 장단점 (slug: esim-guide)
 - [ ] 부모님 효도폰 고르는 법과 초기 설정 (slug: phone-for-parents)
 - [ ] 아이 첫 스마트폰, 키즈폰과 일반폰 중 무엇을 고를까 (slug: first-phone-for-kids)
