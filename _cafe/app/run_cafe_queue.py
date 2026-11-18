@@ -121,6 +121,23 @@ def post_one(cfg):
     return True
 
 
+def fix_wake():
+    """CafeAuto·CafeRank 에 '절전 모드 해제'·'놓친 작업 바로 실행' 설정을 켬 (한 번만)"""
+    flag = os.path.join(BASE, "_wake_set.txt")
+    if os.path.exists(flag):
+        return
+    ps = ("$s = New-ScheduledTaskSettingsSet -WakeToRun -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Hours 6); "
+          "Set-ScheduledTask -TaskName CafeAuto -Settings $s | Out-Null; "
+          "Set-ScheduledTask -TaskName CafeRank -Settings $s | Out-Null")
+    r = subprocess.run(["powershell", "-NoProfile", "-Command", ps], capture_output=True, text=True,
+                       encoding="utf-8", errors="ignore")
+    if r.returncode == 0:
+        open(flag, "w").write("ok")
+        log("절전 모드 해제·놓친 작업 바로 실행 설정 완료")
+    else:
+        log("절전 해제 설정 실패 (작업 스케줄러에서 직접 체크 필요): " + (r.stderr or "")[:200])
+
+
 def fix_schedule(cfg):
     """작업 스케줄러 시작 시각이 설정과 다르면 맞춤 (CafeAuto=시작 시각, CafeRank=순위 확인 시각)"""
     for tn, st in (("CafeAuto", cfg["window_start"]), ("CafeRank", cfg.get("rank_check_time", "12:10"))):
@@ -152,6 +169,7 @@ def main():
         log(f"새 글 받기 실패: {e}")
     cfg = json.load(open(os.path.join(BASE, "cafe_config.json"), encoding="utf-8"))
     fix_schedule(cfg)
+    fix_wake()
     from datetime import datetime, timedelta
     now = datetime.now()
     ws = datetime.combine(now.date(), datetime.strptime(cfg["window_start"], "%H:%M").time())
