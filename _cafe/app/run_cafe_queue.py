@@ -121,6 +121,33 @@ def post_one(cfg):
     return True
 
 
+CLEANUP = ["카페자동글쓰기_사진추가", "7_블로그_한번에_자동_이전본.txt", "7_블로그_한번에_자동_이전본_1114.txt",
+           "7_블로그_한번에_자동_이전본_1116.txt", "8_방문자_기록_이전본_1114.txt", "blog_stats_이전본.txt",
+           "post_blog_이전본.txt"]
+
+
+def cleanup():
+    """필요 없는 백업·남은 압축 폴더를 _삭제대기 로 옮김 (한 번만, 지우지 않음)"""
+    import shutil
+    flag = os.path.join(BASE, "_삭제대기", "_옮긴목록.txt")
+    if os.path.exists(flag):
+        return
+    dst = os.path.join(BASE, "_삭제대기")
+    moved = []
+    for name in CLEANUP:
+        src = os.path.join(BASE, name)
+        if os.path.exists(src):
+            try:
+                os.makedirs(dst, exist_ok=True)
+                shutil.move(src, os.path.join(dst, name))
+                moved.append(name)
+            except Exception as e:
+                log(f"정리 실패: {name} {e}")
+    if moved:
+        open(flag, "w", encoding="utf-8").write("\n".join(moved) + "\n\n문제없으면 이 _삭제대기 폴더를 통째로 지워도 됩니다.")
+        log(f"정리: {len(moved)}개를 _삭제대기 폴더로 옮김")
+
+
 def fix_wake():
     """CafeAuto·CafeRank 에 '절전 모드 해제'·'놓친 작업 바로 실행' 설정을 켬 (한 번만)"""
     flag = os.path.join(BASE, "_wake_set.txt")
@@ -170,6 +197,7 @@ def main():
     cfg = json.load(open(os.path.join(BASE, "cafe_config.json"), encoding="utf-8"))
     fix_schedule(cfg)
     fix_wake()
+    cleanup()
     from datetime import datetime, timedelta
     now = datetime.now()
     ws = datetime.combine(now.date(), datetime.strptime(cfg["window_start"], "%H:%M").time())
