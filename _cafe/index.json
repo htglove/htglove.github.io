@@ -1,0 +1,44 @@
+{
+  "note": "카페 자동 글쓰기 대기열. PC의 C:\\autowin\\cafe_sync.py 가 PC에 없는 폴더만 내려받음. c001~c003은 PC에 직접 설치됨.",
+  "posts": [
+    {
+      "folder": "c001_갤럭시S26가격",
+      "keyword": "갤럭시 S26 가격",
+      "type": "가격",
+      "model": "갤럭시 S26",
+      "created": "2026-11-19",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ],
+      "local_only": true
+    },
+    {
+      "folder": "c002_아이폰17자급제",
+      "keyword": "아이폰 17 자급제",
+      "type": "자급제",
+      "model": "아이폰 17",
+      "created": "2026-11-19",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ],
+      "local_only": true
+    },
+    {
+      "folder": "c003_아이폰17유심기변",
+      "keyword": "아이폰 17 유심기변",
+      "type": "유심기변",
+      "model": "아이폰 17",
+      "created": "2026-11-19",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ],
+      "local_only": true
+    }
+  ]
+}
