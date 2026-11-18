@@ -121,11 +121,25 @@ def post_one(cfg):
     return True
 
 
+def fix_schedule(cfg):
+    """작업 스케줄러 시작 시각이 설정과 다르면 맞춤 (CafeAuto=시작 시각, CafeRank=순위 확인 시각)"""
+    for tn, st in (("CafeAuto", cfg["window_start"]), ("CafeRank", cfg.get("rank_check_time", "12:10"))):
+        try:
+            xml = subprocess.run(["schtasks", "/query", "/tn", tn, "/xml"], capture_output=True,
+                                 text=True, encoding="utf-16", errors="ignore").stdout
+            if not xml:
+                xml = subprocess.run(["schtasks", "/query", "/tn", tn, "/xml"], capture_output=True,
+                                     text=True, encoding="utf-8", errors="ignore").stdout
+            if f"T{st}:00" in xml or not xml:
+                continue
+            r = subprocess.run(["schtasks", "/change", "/tn", tn, "/st", st], capture_output=True, text=True)
+            log(f"예약 시각 변경: {tn} -> {st} ({'성공' if r.returncode == 0 else '실패: 12_cafe_schedule.bat 를 관리자 권한으로 다시 실행해 주세요'})")
+        except Exception as e:
+            log(f"예약 시각 확인 실패: {e}")
+
+
 def main():
     cfg = json.load(open(os.path.join(BASE, "cafe_config.json"), encoding="utf-8"))
-    win = minutes(cfg["window_end"]) - minutes(cfg["window_start"])
-    if win < 0:
-        win += 24 * 60
     try:
         import cafe_sync
         upd = cafe_sync.update_app()
@@ -136,8 +150,22 @@ def main():
         log(f"새 글 {got}개 받음")
     except Exception as e:
         log(f"새 글 받기 실패: {e}")
-    start = time.time()
-    plan = pick_times(win, int(cfg.get("count", 3)), int(cfg.get("min_gap_minutes", 90)))
+    cfg = json.load(open(os.path.join(BASE, "cafe_config.json"), encoding="utf-8"))
+    fix_schedule(cfg)
+    from datetime import datetime, timedelta
+    now = datetime.now()
+    ws = datetime.combine(now.date(), datetime.strptime(cfg["window_start"], "%H:%M").time())
+    we = datetime.combine(now.date(), datetime.strptime(cfg["window_end"], "%H:%M").time())
+    if we <= ws:
+        we += timedelta(days=1)
+    if now < ws:
+        base, win = ws, (we - ws).seconds // 60
+    elif now < we:
+        base, win = now, max(int((we - now).total_seconds() // 60), 1)
+    else:   # 시간대가 지났으면(예: 첫날) 지금부터 같은 길이로 진행
+        base, win = now, (we - ws).seconds // 60
+    start = base.timestamp()
+    plan = pick_times(win, int(cfg.get("count", 3)), int(cfg.get("min_gap_minutes", 45)))
     log("오늘 카페 글 시각: " + ", ".join(time.strftime("%H:%M", time.localtime(start + m * 60)) for m in plan))
     for m in plan:
         while time.time() < start + m * 60:

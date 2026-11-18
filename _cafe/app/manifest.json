@@ -1,11 +1,12 @@
 {
   "note": "PC C:\\autowin 프로그램 자동 업데이트 목록. 파일을 고치면 sha256 갱신.",
   "files": {
+    "cafe_config.json": "40df03e3d436780353937c69df9040361e67c0e59d6a31ccbdfbaf5331dbb37d",
     "cafe_rank_check.py": "9163a2ae2966a3ce2e7066ddae6a2fc8cec082d5208407e06716a20c4c5c18ba",
     "cafe_schedule_setup.py": "61f5442949e836601ccd4edc6cbb56bc5eb70f533956b7390a6946051bc645ef",
-    "cafe_sync.py": "b52e551f18f1d627ec98a2ba5aadf178e1716f34e994330192f724f61de307fc",
+    "cafe_sync.py": "f6e8ca65d2499b932f230a27a5490050c74a7537324f6a5e0215b182a34c09d3",
     "cafe_test.py": "d7fc8832f8ccfcb198bf2a2107fe2008d1dcda14fb2c0a050b9ac9f627e2d5a6",
     "post_cafe.py": "23cbe288498085a004689a14d6952a45b79436b714c020a058dc29e24d8f4b57",
-    "run_cafe_queue.py": "b06073b2a9c53105f3677503ad8f7cea8bacb88a96732a39ef23262fbc06232d"
+    "run_cafe_queue.py": "b9515dde9cccf97d0e206c48aea19b2a2d04bd1aefad11d04f3e63ca63d17ea1"
   }
 }

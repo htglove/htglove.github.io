@@ -1,0 +1,13 @@
+{
+  "cafe_url": "https://cafe.naver.com/mamn9",
+  "boards": [
+    "스마트폰 정보",
+    "휴대폰 공동구매",
+    "문의게시판"
+  ],
+  "count": 3,
+  "window_start": "09:00",
+  "window_end": "11:40",
+  "min_gap_minutes": 45,
+  "rank_check_time": "12:10"
+}

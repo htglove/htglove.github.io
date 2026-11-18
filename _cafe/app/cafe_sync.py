@@ -26,7 +26,7 @@ def update_app():
         return 0
     n = 0
     for name, sha in man.get("files", {}).items():
-        if "/" in name or "\\" in name or ".." in name:
+        if "/" in name or "\\" in name or ".." in name or not (name.endswith(".py") or name == "cafe_config.json"):
             continue
         local = os.path.join(BASE, name)
         try:
