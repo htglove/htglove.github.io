@@ -75,6 +75,42 @@
         "img1.png",
         "img2.png"
       ]
+    },
+    {
+      "folder": "c007_galaxy-zfold8-price",
+      "keyword": "갤럭시z폴드8 가격",
+      "type": "가격",
+      "model": "갤럭시z폴드8",
+      "created": "2026-11-20",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c008_galaxy-s27-release-date",
+      "keyword": "갤럭시s27 출시일",
+      "type": "출시예정_출시일",
+      "model": "갤럭시s27",
+      "created": "2026-11-20",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c009_phone-signup-block",
+      "keyword": "휴대폰 가입제한서비스",
+      "type": "IT뉴스",
+      "model": "",
+      "created": "2026-11-20",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
     }
   ]
 }
