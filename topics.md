@@ -18,6 +18,6 @@
 - [x] eSIM이란? 사용법과 장단점 (slug: esim-guide)
 - [x] 부모님 효도폰 고르는 법과 초기 설정 (slug: phone-for-parents)
 - [x] 아이 첫 스마트폰, 키즈폰과 일반폰 중 무엇을 고를까 (slug: first-phone-for-kids)
-- [ ] 휴대폰 분실·파손 보험, 가입해야 할까 (slug: phone-insurance)
+- [x] 휴대폰 분실·파손 보험, 가입해야 할까 (slug: phone-insurance)
 - [ ] 인터넷·TV 가입 전 꼭 확인할 것: 약정·결합·사은품 (slug: internet-tv-signup)
 - [ ] 해외여행 데이터: 로밍 vs 현지 유심 vs eSIM (slug: travel-data)
