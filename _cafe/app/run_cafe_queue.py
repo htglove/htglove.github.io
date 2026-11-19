@@ -64,7 +64,7 @@ def pick_board(cfg):
     return random.choice([b for b in boards if cnt[b] == low])
 
 
-BUSY = ("post_blog.py", "upload_clip.py", "make_clip.py", "make_voice_clip.py", "blog_stats.py", "keyword_research.py")
+BUSY = ("blog_top_posts.py", "post_blog.py", "upload_clip.py", "make_clip.py", "make_voice_clip.py", "blog_stats.py", "keyword_research.py")
 
 
 def busy():
@@ -204,15 +204,34 @@ def main():
     we = datetime.combine(now.date(), datetime.strptime(cfg["window_end"], "%H:%M").time())
     if we <= ws:
         we += timedelta(days=1)
-    if now < ws:
-        base, win = ws, (we - ws).seconds // 60
-    elif now < we:
-        base, win = now, max(int((we - now).total_seconds() // 60), 1)
-    else:   # 시간대가 지났으면(예: 첫날) 지금부터 같은 길이로 진행
-        base, win = now, (we - ws).seconds // 60
-    start = base.timestamp()
-    plan = pick_times(win, int(cfg.get("count", 3)), int(cfg.get("min_gap_minutes", 45)))
-    log("오늘 카페 글 시각: " + ", ".join(time.strftime("%H:%M", time.localtime(start + m * 60)) for m in plan))
+    # 블로그 발행 시간(avoid)을 피해서, 남은 시간대 안에서 랜덤 시각 고르기
+    start_dt = max(now, ws) if now < we else now
+    end_dt = we if now < we else now + (we - ws)
+    avoid = []
+    for a in cfg.get("avoid", []):
+        s, e = a.split("-")
+        avoid.append((datetime.combine(now.date(), datetime.strptime(s, "%H:%M").time()),
+                      datetime.combine(now.date(), datetime.strptime(e, "%H:%M").time())))
+    slots = []
+    t = start_dt
+    while t < end_dt:
+        if not any(s <= t < e for s, e in avoid):
+            slots.append(t)
+        t += timedelta(minutes=1)
+    n = min(int(cfg.get("count", 3)), len(slots))
+    gap = int(cfg.get("min_gap_minutes", 45))
+    times = []
+    for g in (gap, gap // 2, 10, 1):
+        for _ in range(800):
+            pick = sorted(random.sample(slots, n)) if n else []
+            if all((b - a).total_seconds() >= g * 60 for a, b in zip(pick, pick[1:])):
+                times = pick
+                break
+        if times or not n:
+            break
+    start = now.timestamp()
+    plan = [max(0, (x - now).total_seconds() / 60) for x in times]
+    log("오늘 카페 글 시각: " + ", ".join(x.strftime("%H:%M") for x in times))
     for m in plan:
         while time.time() < start + m * 60:
             time.sleep(min(60, max(1, start + m * 60 - time.time())))

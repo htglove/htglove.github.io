@@ -9,5 +9,8 @@
   "window_start": "09:00",
   "window_end": "11:40",
   "min_gap_minutes": 45,
-  "rank_check_time": "12:10"
+  "rank_check_time": "12:10",
+  "avoid": [
+    "09:40-10:30"
+  ]
 }
