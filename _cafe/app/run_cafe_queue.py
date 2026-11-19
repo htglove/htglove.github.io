@@ -183,6 +183,7 @@ def fix_schedule(cfg):
 
 
 def main():
+    log(f"시작 (파이썬: {sys.executable})")
     cfg = json.load(open(os.path.join(BASE, "cafe_config.json"), encoding="utf-8"))
     try:
         import cafe_sync
