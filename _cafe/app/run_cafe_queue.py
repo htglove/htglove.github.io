@@ -169,14 +169,18 @@ def fix_schedule(cfg):
     """작업 스케줄러 시작 시각이 설정과 다르면 맞춤 (CafeAuto=시작 시각, CafeRank=순위 확인 시각)"""
     for tn, st in (("CafeAuto", cfg["window_start"]), ("CafeRank", cfg.get("rank_check_time", "12:10"))):
         try:
-            xml = subprocess.run(["schtasks", "/query", "/tn", tn, "/xml"], capture_output=True,
-                                 text=True, encoding="utf-16", errors="ignore").stdout
-            if not xml:
-                xml = subprocess.run(["schtasks", "/query", "/tn", tn, "/xml"], capture_output=True,
-                                     text=True, encoding="utf-8", errors="ignore").stdout
+            raw = subprocess.run(["schtasks", "/query", "/tn", tn, "/xml"], capture_output=True).stdout or b""
+            xml = ""
+            for enc in ("utf-16", "utf-8", "cp949"):
+                try:
+                    xml = raw.decode(enc)
+                    if "StartBoundary" in xml:
+                        break
+                except Exception:
+                    continue
             if f"T{st}:00" in xml or not xml:
                 continue
-            r = subprocess.run(["schtasks", "/change", "/tn", tn, "/st", st], capture_output=True, text=True)
+            r = subprocess.run(["schtasks", "/change", "/tn", tn, "/st", st], capture_output=True)
             log(f"예약 시각 변경: {tn} -> {st} ({'성공' if r.returncode == 0 else '실패: 12_cafe_schedule.bat 를 관리자 권한으로 다시 실행해 주세요'})")
         except Exception as e:
             log(f"예약 시각 확인 실패: {e}")
