@@ -111,6 +111,42 @@
         "img1.png",
         "img2.png"
       ]
+    },
+    {
+      "folder": "c010_iphone-18-pro-price",
+      "keyword": "아이폰18프로 가격",
+      "type": "가격",
+      "model": "아이폰18프로",
+      "created": "2026-11-21",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c011_galaxy-s26-ultra-spec",
+      "keyword": "갤럭시s26울트라 스펙",
+      "type": "스펙",
+      "model": "갤럭시s26울트라",
+      "created": "2026-11-21",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c012_windows11-capture-folder",
+      "keyword": "윈도우11 캡처 저장위치",
+      "type": "윈도우",
+      "model": "",
+      "created": "2026-11-21",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
     }
   ]
 }
