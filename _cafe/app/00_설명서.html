@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>autowin 설명서</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2330;--sub:#5b6475;--line:#e3e6ec;--pt:#2457d6;--warn:#b42318;--warnbg:#fdecea;--ok:#e8f3ec}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Malgun Gothic","Noto Sans KR",sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 16px 60px}
+h1{font-size:26px;margin:0 0 4px}h2{font-size:20px;margin:36px 0 10px;padding-top:6px;border-top:2px solid var(--line)}
+h3{font-size:17px;margin:20px 0 6px}.sub{color:var(--sub);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:12px 0}
+.warn{background:var(--warnbg);border-color:#f3b8b2}.warn b{color:var(--warn)}.ok{background:var(--ok)}
+code{background:#eef1f6;padding:1px 6px;border-radius:4px;font-family:Consolas,monospace;font-size:14px}
+pre{background:#1d2330;color:#f2f4f8;padding:12px 14px;border-radius:8px;overflow-x:auto;font-size:14px}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#eef1f6}ol li,ul li{margin:4px 0}nav a{color:var(--pt);margin-right:12px;text-decoration:none}
+</style></head><body><main>
+<h1>autowin 자동 업로드 프로그램 설명서</h1>
+<p class="sub">네이버 블로그 · 네이버 클립 · 네이버 카페(폰안파는폰가게) 자동 등록 — 직원 전달용 최종본 (2026년 11월)</p>
+<nav><a href="#s1">1. 한눈에 보기</a><a href="#s2">2. 새 PC 설치</a><a href="#s3">3. 매일 확인</a><a href="#s4">4. 카페 프로그램</a><a href="#s5">5. 블로그·클립</a><a href="#s6">6. 문제 해결</a></nav>
+
+<div class="card warn"><b>꼭 지킬 것 3가지</b>
+<ol><li><b>카페 자동 등록(CafeAuto)은 PC 한 대에서만</b> 켜 둡니다. 두 대에서 켜면 같은 글이 두 번 올라갑니다. 새 PC로 옮기면 예전 PC의 작업 스케줄러에서 <code>CafeAuto</code>·<code>CafeRank</code>를 꺼 주세요. 블로그·클립 예약도 같습니다.</li>
+<li>네이버 로그인 정보와 API 키는 압축 파일에 들어 있지 않습니다. 로그인은 새 PC의 전용 창에서 직접 하고, 키는 따로 받습니다(<code>00_빠진파일.txt</code> 참고).</li>
+<li>프로그램 폴더는 반드시 <code>C:\autowin</code> 바로 아래여야 합니다. 압축을 풀 때 <code>C:\autowin\autowin\...</code> 처럼 한 단계 더 생기지 않게 하세요.</li></ol></div>
+
+<h2 id="s1">1. 한눈에 보기</h2>
+<table><tr><th>항목</th><th>내용</th></tr>
+<tr><td>프로그램 위치</td><td><code>C:\autowin</code></td></tr>
+<tr><td>글 올리는 방식</td><td>전용 크롬 창(번호 9222)을 띄워 두고, 프로그램이 그 창에서 네이버에 글을 올립니다. 블로그·클립·카페가 같은 창을 씁니다. 전용 창은 <code>2_open_window.bat</code>(PC에 따라 <code>2_네이버창_열기.bat</code>)로 엽니다.</td></tr>
+<tr><td>카페 글 원고</td><td>Claude 예약 작업이 매일 아침 GitHub(htglove/htglove.github.io의 <code>_cafe</code> 폴더)에 글 3개를 넣고, PC 프로그램이 09:00에 자동으로 받아 옵니다.</td></tr>
+<tr><td>하루 일정</td><td>09:00 카페 프로그램 시작 → 09:00~11:40 사이 랜덤 시각에 카페 글 3개 (블로그 발행 시간 09:40~10:30은 피함, 글 사이 45분 이상) → 12:10 카페 노출 순위 확인</td></tr>
+<tr><td>프로그램 업데이트</td><td>카페 프로그램은 시작할 때 GitHub의 최신 버전으로 저절로 바뀝니다. 직접 파일을 바꿀 필요 없습니다.</td></tr>
+<tr><td>전체 파일 목록</td><td>압축 파일 안 <code>00_포함목록.txt</code> — 실행 파일(.bat)과 프로그램(.py)마다 한 줄 설명</td></tr></table>
+
+<h2 id="s2">2. 새 PC 설치 (순서대로)</h2>
+<h3>① 파이썬 설치</h3>
+<ol><li>python.org → Downloads → Windows 용 최신 Python 3 설치 파일을 받습니다.</li>
+<li>설치 첫 화면 아래 <b>"Add python.exe to PATH"</b>에 체크하고 "Install Now".</li>
+<li>시작 메뉴에서 "명령 프롬프트"를 열고 <code>py --version</code> 입력 → 버전 숫자가 나오면 성공.</li></ol>
+<h3>② 크롬 설치</h3><p>전용 창은 PC에 설치된 크롬으로 엽니다. 크롬이 없으면 먼저 설치합니다.</p>
+<h3>③ 프로그램 넣기</h3>
+<ol><li>받은 <code>autowin_전달_날짜.zip</code>을 오른쪽 클릭 → "압축 풀기".</li>
+<li>안에 있는 <code>autowin</code> 폴더를 <code>C:\</code> 바로 아래로 옮깁니다. → <code>C:\autowin\post_cafe.py</code> 처럼 보여야 정상.</li>
+<li>따로 받은 API 키 파일이 있으면 <code>C:\autowin</code>에 넣습니다(<code>00_빠진파일.txt</code>에 적힌 이름 그대로).</li></ol>
+<h3>④ 필요한 부품 설치</h3>
+<p><code>C:\autowin\00_필요한설치.txt</code>를 열어 적힌 명령을 명령 프롬프트에 그대로 붙여 넣습니다. 예:</p>
+<pre>py -m pip install playwright requests
+py -m playwright install chromium</pre>
+<h3>⑤ 전용 창 열고 네이버 로그인</h3>
+<ol><li><code>C:\autowin\2_open_window.bat</code> 더블클릭 → 크롬 창이 하나 뜹니다.</li>
+<li>그 창에서 네이버에 로그인합니다(로그인 상태 유지 체크). <b>이 창은 끄지 말고 두세요.</b></li>
+<li>카페 cafe.naver.com/mamn9 에 들어가 글쓰기 권한이 있는지 확인합니다.</li></ol>
+<h3>⑥ 카페 예약 등록</h3>
+<ol><li><code>C:\autowin\12_cafe_schedule.bat</code>를 오른쪽 클릭 → <b>"관리자 권한으로 실행"</b>.</li>
+<li><code>SCHEDULE OK</code> 가 나오면 끝. 매일 09:00(글 올리기)과 12:10(순위 확인)에 자동 실행되고, 절전 중이면 깨워서 실행합니다.</li></ol>
+<h3>⑦ 시험 한 번</h3>
+<p>명령 프롬프트에서 <code>py C:\autowin\cafe_test.py</code> → 아직 안 올린 첫 글을 게시판·제목·본문·태그까지 채우고 <b>등록은 누르지 않습니다</b>. 화면을 보고 이상 없으면 직접 "등록"을 누르거나 창을 닫습니다.</p>
+<h3>⑧ 블로그·클립 예약</h3>
+<p><code>00_포함목록.txt</code>에서 블로그·클립용 .bat 파일(예약 등록용 포함)을 찾아 같은 방식으로 등록합니다. 예전 PC의 작업 스케줄러(시작 → "작업 스케줄러")에 있던 작업 이름과 시각을 그대로 맞추면 됩니다.</p>
+
+<h2 id="s3">3. 매일 확인할 것 (5분)</h2>
+<ul><li>PC가 켜져 있고(절전은 괜찮음, 종료는 안 됨) 전용 창 로그인이 살아 있는지.</li>
+<li><code>C:\autowin\cafe_log.txt</code> 맨 아래 — "오늘 카페 글 시각", "완료: …" 줄이 3개 있으면 정상.</li>
+<li>점심 이후 <code>C:\autowin\cafe_rank_요약.txt</code> — 게시판별 노출 결과.</li>
+<li>글 폴더(<code>C:\autowin\cafe_posts\c0xx_…</code>)에 <code>업로드완료.txt</code>가 생기면 올라간 글, <code>_실패.txt</code>가 생기면 실패한 글입니다.</li></ul>
+
+<h2 id="s4">4. 카페 프로그램</h2>
+<h3>파일</h3>
+<table><tr><th>파일</th><th>하는 일</th></tr>
+<tr><td><code>run_cafe_queue.py</code></td><td>매일 09:00 실행. 새 글·프로그램 받아 오기 → 오늘 올릴 시각 3개를 정하고 하나씩 올림. 블로그·클립 프로그램이 크롬을 쓰는 중이면 3분씩 기다림.</td></tr>
+<tr><td><code>post_cafe.py</code></td><td>글 한 개를 카페에 올림(게시판 선택 → 제목 → 본문·사진 → 태그 → 등록). 단계마다 글 폴더 <code>_log</code>에 화면 사진을 남김.</td></tr>
+<tr><td><code>cafe_sync.py</code></td><td>GitHub에서 새 글 폴더와 바뀐 프로그램 파일을 내려받음.</td></tr>
+<tr><td><code>cafe_rank_check.py</code></td><td>매일 12:10. 올린 지 1·3·7일째 글을 네이버에서 검색해 통합검색·카페탭 순위를 <code>cafe_rank.csv</code>에 기록, 게시판별 요약.</td></tr>
+<tr><td><code>cafe_schedule_setup.py</code></td><td><code>12_cafe_schedule.bat</code>가 실행. 작업 스케줄러에 CafeAuto·CafeRank 등록.</td></tr>
+<tr><td><code>cafe_test.py</code></td><td>시험 실행(등록은 사람이 누름). <code>--auto</code>를 붙이면 등록까지.</td></tr>
+<tr><td><code>cafe_config.json</code></td><td>설정(아래 표). GitHub 쪽이 바뀌면 자동으로 덮어씀.</td></tr>
+<tr><td><code>make_handoff.py</code></td><td>이 전달용 압축 파일을 만드는 프로그램.</td></tr></table>
+<h3>설정 (cafe_config.json)</h3>
+<table><tr><th>값</th><th>지금 설정</th></tr>
+<tr><td>카페</td><td>cafe.naver.com/mamn9 (폰안파는폰가게)</td></tr>
+<tr><td>게시판 6개</td><td>스마트폰 정보, 휴대폰 공동구매, 문의게시판, 가입인사, 설치후기, 현금사은품지급 명단 — 어느 게시판이 노출이 잘 되는지 비교 중이라, 지금까지 올린 글이 가장 적은 게시판부터 돌아가며 올립니다. 이름은 카페 메뉴 이름과 한 글자도 다르면 안 됩니다.</td></tr>
+<tr><td>하루 개수·시간</td><td>3개, 09:00~11:40, 글 사이 최소 45분, 09:40~10:30 피함(블로그 발행 시간)</td></tr>
+<tr><td>순위 확인</td><td>12:10</td></tr></table>
+<p>글 하나를 올리지 않게 하려면 그 글 폴더에 빈 파일 <code>보류.txt</code>를 만들면 됩니다.</p>
+
+<h2 id="s5">5. 블로그·클립 프로그램</h2>
+<p>블로그·클립 프로그램은 카페와 같은 <code>C:\autowin</code>에 있고 같은 전용 창을 씁니다. 프로그램별 설명과 실행 파일은 압축 파일과 함께 만들어진 <code>00_포함목록.txt</code>에 정리돼 있습니다(지금 PC에서 실제 쓰는 최종 파일 기준).</p>
+<table><tr><th>프로그램</th><th>역할</th></tr>
+<tr><td><code>post_blog.py</code></td><td>네이버 블로그 글 발행</td></tr>
+<tr><td><code>blog_top_posts.py</code>, <code>blog_stats.py</code>, <code>keyword_research.py</code></td><td>블로그 인기글·방문자 기록·키워드 조사</td></tr>
+<tr><td><code>upload_clip.py</code>, <code>make_clip.py</code>, <code>make_voice_clip.py</code></td><td>네이버 클립 영상 만들기·올리기</td></tr></table>
+<p>카페 프로그램은 위 프로그램이 돌고 있으면 끝날 때까지 기다렸다가 올리므로, 시간이 겹쳐도 크롬 창이 엉키지 않습니다.</p>
+
+<h2 id="s6">6. 문제 해결</h2>
+<table><tr><th>증상 (cafe_log.txt / _log)</th><th>할 일</th></tr>
+<tr><td>전용 창이 안 떠 있습니다</td><td><code>2_open_window.bat</code> 실행 후 다시 시도</td></tr>
+<tr><td>네이버 로그인이 풀렸습니다</td><td>전용 창에서 다시 로그인, 실패한 글 폴더의 <code>_실패.txt</code> 삭제 → 다음 날 자동으로 다시 올림</td></tr>
+<tr><td>게시판 '…'을 목록에서 못 찾았습니다</td><td>카페 메뉴 이름이 바뀌었는지 확인 → 관리자에게 알려 <code>cafe_config.json</code> 수정</td></tr>
+<tr><td>글쓰기 권한이 없습니다</td><td>전용 창 계정의 카페 가입·등급 확인</td></tr>
+<tr><td>실패하면 그날은 멈춤</td><td>같은 오류 반복을 막으려는 동작입니다. 원인을 고치고 <code>_실패.txt</code>를 지우면 다음 실행 때 이어서 올립니다.</td></tr>
+<tr><td>09:00에 아무 기록이 없음</td><td>PC가 꺼져 있었거나 예약이 빠짐 → <code>12_cafe_schedule.bat</code>를 관리자 권한으로 다시 실행</td></tr>
+<tr><td>그 밖의 오류</td><td>글 폴더의 <code>_log</code> 사진과 <code>log.txt</code>를 관리자(또는 Claude)에게 보여 주세요.</td></tr></table>
+
+<h2>전달용 압축 파일 다시 만들기</h2>
+<div class="card ok">프로그램이 바뀐 뒤 다시 전달하려면 지금 쓰는 PC에서 <code>py C:\autowin\make_handoff.py</code> 실행 → 바탕화면에 <code>autowin_전달_날짜.zip</code>이 생깁니다. 로그인 정보·기록·키 파일은 자동으로 빠지고, 이미 올린 카페 글은 "올림" 표시만 넣어 새 PC가 같은 글을 다시 올리지 않습니다.</div>
+</main></body></html>
