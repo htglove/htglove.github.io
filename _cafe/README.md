@@ -8,6 +8,7 @@
 - posts/<폴더>/post.json, card1.html, card2.html, img1.png, img2.png
 - 폴더 이름: c + 3자리 번호(이어서) + _ + 영문 소문자·숫자·하이픈 (예: c004_galaxy-s26-spec). 한글 금지.
 - tools/render.py: cardN.html → imgN.png 렌더링
+- 게시판: PC 프로그램이 app/cafe_config.json 의 boards(스마트폰 정보, 휴대폰 공동구매, 문의게시판, 가입인사, 설치후기, 현금사은품지급 명단) 중 올린 글이 가장 적은 곳을 골라 올린다(게시판별 노출 비교용). 글은 게시판과 상관없이 같은 정보글 규칙으로 쓰고, post.json 에 board 를 넣지 않는다.
 
 ## post.json 형식
 {"keyword": "...", "title": "...", "body": ["문단", {"image": "img1.png"}, "문단", ...], "tags": ["띄어쓰기없는태그", ...]}
