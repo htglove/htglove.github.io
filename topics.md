@@ -20,4 +20,4 @@
 - [x] 아이 첫 스마트폰, 키즈폰과 일반폰 중 무엇을 고를까 (slug: first-phone-for-kids)
 - [x] 휴대폰 분실·파손 보험, 가입해야 할까 (slug: phone-insurance)
 - [x] 인터넷·TV 가입 전 꼭 확인할 것: 약정·결합·사은품 (slug: internet-tv-signup)
-- [ ] 해외여행 데이터: 로밍 vs 현지 유심 vs eSIM (slug: travel-data)
+- [x] 해외여행 데이터: 로밍 vs 현지 유심 vs eSIM (slug: travel-data)
