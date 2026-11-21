@@ -147,6 +147,42 @@
         "img1.png",
         "img2.png"
       ]
+    },
+    {
+      "folder": "c013_galaxy-s27-spec",
+      "keyword": "갤럭시s27 스펙",
+      "type": "출시예정_스펙",
+      "model": "갤럭시s27",
+      "created": "2026-11-22",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c014_iphone-17-price",
+      "keyword": "아이폰17 가격",
+      "type": "가격",
+      "model": "아이폰17",
+      "created": "2026-11-22",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c015_kakaotalk-auto-translate",
+      "keyword": "카카오톡 자동번역 설정",
+      "type": "카톡꿀팁",
+      "model": "",
+      "created": "2026-11-22",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
     }
   ]
 }
