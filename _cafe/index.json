@@ -219,6 +219,42 @@
         "img1.png",
         "img2.png"
       ]
+    },
+    {
+      "folder": "c019_galaxy-s27-price",
+      "keyword": "갤럭시s27 가격",
+      "type": "출시예정_가격",
+      "model": "갤럭시s27",
+      "created": "2026-11-24",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c020_galaxy-zfold8-usim",
+      "keyword": "갤럭시z폴드8 유심기변",
+      "type": "유심기변",
+      "model": "갤럭시z폴드8",
+      "created": "2026-11-24",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c021_iphone-battery-health",
+      "keyword": "아이폰 배터리 성능 확인",
+      "type": "iOS",
+      "model": "",
+      "created": "2026-11-24",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
     }
   ]
 }
