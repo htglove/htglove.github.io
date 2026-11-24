@@ -255,6 +255,42 @@
         "img1.png",
         "img2.png"
       ]
+    },
+    {
+      "folder": "c022_iphone-air-unlocked",
+      "keyword": "아이폰에어 자급제",
+      "type": "자급제",
+      "model": "아이폰에어",
+      "created": "2026-11-25",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c023_galaxy-s26-plus-spec",
+      "keyword": "갤럭시s26+ 스펙",
+      "type": "스펙",
+      "model": "갤럭시s26+",
+      "created": "2026-11-25",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c024_kt-google-ai-plan",
+      "keyword": "KT 구글 AI 요금제",
+      "type": "IT뉴스",
+      "model": "",
+      "created": "2026-11-25",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
     }
   ]
 }
