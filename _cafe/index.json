@@ -291,6 +291,42 @@
         "img1.png",
         "img2.png"
       ]
+    },
+    {
+      "folder": "c025_iphone-18-release-date",
+      "keyword": "아이폰18 출시일",
+      "type": "출시예정_출시일",
+      "model": "아이폰18",
+      "created": "2026-11-26",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c026_galaxy-s26-unlocked",
+      "keyword": "갤럭시s26 자급제",
+      "type": "자급제",
+      "model": "갤럭시s26",
+      "created": "2026-11-26",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c027_windows11-screen-record",
+      "keyword": "윈도우11 화면 녹화",
+      "type": "윈도우",
+      "model": "",
+      "created": "2026-11-26",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
     }
   ]
 }
