@@ -23,3 +23,4 @@
 - [x] 해외여행 데이터: 로밍 vs 현지 유심 vs eSIM (slug: travel-data)
 - [x] 요금제 유지기간과 요금제를 중간에 바꿀 때의 위약금 (slug: plan-maintenance-period)
 - [x] 선택약정 만료 후 재약정과 사전예약 (slug: selective-discount-renewal)
+- [x] 휴대폰 가격이 매장마다·날마다 다른 이유와 구매 타이밍 (slug: phone-price-change)
