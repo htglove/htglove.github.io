@@ -327,6 +327,42 @@
         "img1.png",
         "img2.png"
       ]
+    },
+    {
+      "folder": "c028_galaxy-s26-ultra-price",
+      "keyword": "갤럭시s26울트라 가격",
+      "type": "가격",
+      "model": "갤럭시s26울트라",
+      "created": "2026-11-27",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c029_iphone-18-pro-max-spec",
+      "keyword": "아이폰18프로맥스 스펙",
+      "type": "스펙",
+      "model": "아이폰18프로맥스",
+      "created": "2026-11-27",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c030_5g-sa-launch",
+      "keyword": "5G SA 상용화",
+      "type": "IT뉴스",
+      "model": "",
+      "created": "2026-11-27",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
     }
   ]
 }
