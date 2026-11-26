@@ -203,6 +203,11 @@ def main():
     fix_schedule(cfg)
     fix_wake()
     cleanup()
+    try:
+        import patch_incognito
+        patch_incognito.run(log)
+    except Exception as e:
+        log(f"시크릿 패치 확인 실패: {e}")
     from datetime import datetime, timedelta
     now = datetime.now()
     ws = datetime.combine(now.date(), datetime.strptime(cfg["window_start"], "%H:%M").time())

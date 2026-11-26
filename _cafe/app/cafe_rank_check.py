@@ -104,7 +104,8 @@ def main():
         w.writerow(["확인일", "올린지(일)", "게시판", "키워드", "제목", "통합검색_카페글순위", "카페탭_순위", "글주소"])
     with sync_playwright() as pw:
         br = pw.chromium.connect_over_cdp(f"http://127.0.0.1:{port}")
-        page = br.contexts[0].new_page()
+        sctx = br.new_context()   # 시크릿 모드: 로그인·검색 기록 없이 검색
+        page = sctx.new_page()
         try:
             for p in todo:
                 q = urllib.parse.quote(p["keyword"])
@@ -126,6 +127,7 @@ def main():
                 time.sleep(5)
         finally:
             page.close()
+            sctx.close()
     summarize()
 
 

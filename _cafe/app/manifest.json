@@ -2,12 +2,13 @@
   "note": "PC C:\\autowin 프로그램 자동 업데이트 목록. 파일을 고치면 sha256 갱신.",
   "files": {
     "cafe_config.json": "5c798351388e128f100aadf9ea382527ee02e92d60ae2c9665b8c20cccf083a8",
-    "cafe_rank_check.py": "9163a2ae2966a3ce2e7066ddae6a2fc8cec082d5208407e06716a20c4c5c18ba",
+    "cafe_rank_check.py": "3a75dc1ee53e748fa69ca20dfb483c007be639a81f1386b645816269fcc9395d",
     "cafe_schedule_setup.py": "6e6c5db0e1f756b4bdc12b4d4a4b8f467496a652683e4b40bac9ba2444ff202b",
     "cafe_sync.py": "f6e8ca65d2499b932f230a27a5490050c74a7537324f6a5e0215b182a34c09d3",
     "cafe_test.py": "d7fc8832f8ccfcb198bf2a2107fe2008d1dcda14fb2c0a050b9ac9f627e2d5a6",
+    "make_handoff.py": "688dd5807d96a2c125f03ad364ad9d3e98344f75e8af7797a323f40e1af9a00f",
+    "patch_incognito.py": "0b761cc5ae4fd24f2fa2bee0aac8628d7dce0849bca49d512266ab18fd73620f",
     "post_cafe.py": "23cbe288498085a004689a14d6952a45b79436b714c020a058dc29e24d8f4b57",
-    "run_cafe_queue.py": "389a2709a13968d72f98e9cd0958a538bb054a56ab1f7b2b4b902ea502aa7dd8",
-    "make_handoff.py": "688dd5807d96a2c125f03ad364ad9d3e98344f75e8af7797a323f40e1af9a00f"
+    "run_cafe_queue.py": "d8d7a4b1f8338887eb08c2da4b33988f283725025294fd5657ddf8e2618738eb"
   }
 }
