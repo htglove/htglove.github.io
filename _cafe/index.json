@@ -363,6 +363,42 @@
         "img1.png",
         "img2.png"
       ]
+    },
+    {
+      "folder": "c031_iphone-18-spec",
+      "keyword": "아이폰18 스펙",
+      "type": "출시예정_스펙",
+      "model": "아이폰18",
+      "created": "2026-11-28",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c032_galaxy-zfold8-unlocked",
+      "keyword": "갤럭시z폴드8 자급제",
+      "type": "자급제",
+      "model": "갤럭시z폴드8",
+      "created": "2026-11-28",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
+    },
+    {
+      "folder": "c033_kakaotalk-backup-failed",
+      "keyword": "카카오톡 백업 안될때",
+      "type": "카톡꿀팁",
+      "model": "",
+      "created": "2026-11-28",
+      "files": [
+        "post.json",
+        "img1.png",
+        "img2.png"
+      ]
     }
   ]
 }
